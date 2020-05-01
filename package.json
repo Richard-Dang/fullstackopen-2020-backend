@@ -1,0 +1,19 @@
+{
+  "name": "fullstackopen-2020-backend",
+  "version": "1.0.0",
+  "description": "fullstackopen 2020 backend",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Richard Dang",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
