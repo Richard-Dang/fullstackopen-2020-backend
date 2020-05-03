@@ -45,11 +45,6 @@ app.delete("/api/persons/:id", (req, res, next) => {
 
 app.post("/api/persons", (req, res, next) => {
   const { name, number } = req.body;
-
-  if (!name || !number) {
-    return res.status(400).json({ error: `name or number missing` });
-  }
-
   const person = new Person({
     name,
     number,
