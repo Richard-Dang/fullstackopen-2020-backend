@@ -39,7 +39,7 @@ app.get("/api/persons/:id", (req, res, next) => {
 
 app.delete("/api/persons/:id", (req, res, next) => {
   Person.findByIdAndRemove(req.params.id)
-    .then((result) => res.status(204).end())
+    .then(() => res.status(204).end())
     .catch((err) => next(err));
 });
 
@@ -62,7 +62,7 @@ app.put("/api/persons/:id", (req, res, next) => {
   const { name, number } = req.body;
 
   if (!name || !number) {
-    return res.status(400).json({ error: `name or number missing` });
+    return res.status(400).json({ error: "name or number missing" });
   }
 
   const person = {
@@ -77,7 +77,7 @@ app.put("/api/persons/:id", (req, res, next) => {
     .catch((err) => next(err));
 });
 
-app.get("/info", (req, res) => {
+app.get("/info", (req, res, next) => {
   Person.countDocuments({})
     .then((count) => {
       res.send(`Phonebook has info for ${count} people\n ${new Date()}`);
