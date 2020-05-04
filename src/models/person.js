@@ -1,5 +1,5 @@
-const uniqueValidator = require("mongoose-unique-validator");
 const mongoose = require("mongoose");
+const uniqueValidator = require("mongoose-unique-validator");
 
 const personSchema = mongoose.Schema({
   name: { type: String, required: true, unique: true, minlength: 3 },

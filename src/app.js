@@ -1,5 +1,5 @@
 const express = require("express");
-const morganLogger = require("./middlewares/morganLogger");
+const requestLogger = require("./middlewares/requestLogger");
 const app = express();
 const cors = require("cors");
 const errorHandler = require("./middlewares/errorHandler");
@@ -27,7 +27,7 @@ mongoose
 app.use(cors());
 app.use(express.static("build"));
 app.use(express.json());
-app.use(morganLogger());
+app.use(requestLogger());
 
 app.use("/api/persons", personsRouter);
 

@@ -1,6 +1,6 @@
 const morgan = require("morgan");
 
-const morganLogger = () => {
+const requestLogger = () => {
   morgan.token("data", (req) => {
     return JSON.stringify(req.body);
   });
@@ -10,4 +10,4 @@ const morganLogger = () => {
   );
 };
 
-module.exports = morganLogger;
+module.exports = requestLogger;
