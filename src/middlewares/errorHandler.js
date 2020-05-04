@@ -1,5 +1,7 @@
+const logger = require("../utils/logger");
+
 const errorHandler = (err, req, res, next) => {
-  console.log(err.message);
+  logger.error(err.message);
 
   switch (err.name) {
     case "CastError":

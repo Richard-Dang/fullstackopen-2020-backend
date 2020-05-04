@@ -1,8 +1,9 @@
 const mongoose = require("mongoose");
+const logger = require("./utils/logger");
 require("dotenv").config();
 
 if (process.argv.length < 3) {
-  console.log("give password as argument");
+  logger.error("give password as argument");
   process.exit(1);
 }
 
@@ -28,11 +29,11 @@ if (process.argv[4]) {
 }
 
 if (process.argv.length === 3) {
-  console.log("phonebook:");
+  logger.info("phonebook:");
   Person.find({}).then((res) => {
-    if (res.length === 0) console.log("empty");
+    if (res.length === 0) logger.info("empty");
     res.forEach((person) => {
-      console.log(person.name, person.number);
+      logger.info(person.name, person.number);
     });
     mongoose.connection.close();
   });
@@ -43,7 +44,7 @@ if (process.argv.length === 3) {
   });
 
   person.save().then(() => {
-    console.log(`added ${name} number ${number} to phonebook`);
+    logger.info(`added ${name} number ${number} to phonebook`);
     mongoose.connection.close();
   });
 }
